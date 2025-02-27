@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useInterval } from "usehooks-ts";
+import React from "react";
 
 const size = 15;
 const board = {
@@ -132,7 +133,7 @@ export default function Home() {
 
   useInterval(() => {
     if (!isGameOver) gameLoop();
-  }, 300);
+  }, 100);
 
   return (
     <div>
@@ -159,7 +160,7 @@ export default function Home() {
               top: head.top * size,
               left: head.left * size,
             }}
-            className="bg-stone-900 absolute rounded-full"
+            className="bg-green-700 absolute rounded-lg"
           ></div>
           {tails.map((tail, index) => (
             <Tail key={`${tail.left}-${tail.top}-${index}`} top={tail.top} left={tail.left} />
